@@ -240,3 +240,11 @@ header p {
 .hidden {
   display: none !important;
 }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
