@@ -1,0 +1,242 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #1a1a1a;
+  --fg: #fafafa;
+  --card-bg: #2a2a2a;
+  --card-border: rgba(255, 255, 255, 0.1);
+  --muted: #a1a1a1;
+  --ring: #555;
+  --radius: 1rem;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+header p {
+  margin-top: 0.75rem;
+  font-size: 1.125rem;
+  color: var(--muted);
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 40rem;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    gap: 1.25rem;
+  }
+}
+
+/* Card */
+.card {
+  perspective: 1000px;
+  cursor: pointer;
+  border-radius: var(--radius);
+  outline: none;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Front */
+.card-front {
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .card-front {
+    gap: 0.75rem;
+  }
+}
+
+.card:not(.flipped):hover .card-front {
+  transform: scale(1.05);
+}
+
+.card:not(.flipped):active .card-front {
+  transform: scale(0.95);
+}
+
+.card-front svg {
+  width: 2rem;
+  height: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+@media (min-width: 640px) {
+  .card-front svg {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.card-front span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 640px) {
+  .card-front span {
+    font-size: 1.125rem;
+  }
+}
+
+/* Back */
+.card-back {
+  transform: rotateY(180deg);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .card-back {
+    padding: 1.5rem;
+  }
+}
+
+.card-back p {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--fg);
+}
+
+@media (min-width: 640px) {
+  .card-back p {
+    font-size: 1.125rem;
+  }
+}
+
+/* Gradients */
+.gradient-orange {
+  background: linear-gradient(135deg, #f97316, #d97706);
+}
+.gradient-sky {
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+}
+.gradient-violet {
+  background: linear-gradient(135deg, #8b5cf6, #9333ea);
+}
+.gradient-emerald {
+  background: linear-gradient(135deg, #10b981, #16a34a);
+}
+.gradient-pink {
+  background: linear-gradient(135deg, #ec4899, #e11d48);
+}
+.gradient-cyan {
+  background: linear-gradient(135deg, #06b6d4, #0d9488);
+}
+.gradient-red {
+  background: linear-gradient(135deg, #ef4444, #e11d48);
+}
+.gradient-yellow {
+  background: linear-gradient(135deg, #eab308, #d97706);
+}
+.gradient-indigo {
+  background: linear-gradient(135deg, #6366f1, #2563eb);
+}
+
+/* Reset Button */
+.reset-btn {
+  margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--fg);
+  background: transparent;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.reset-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.reset-btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.hidden {
+  display: none !important;
+}

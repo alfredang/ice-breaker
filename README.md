@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ice Breaker
+
+An interactive flip card web app for ice breaker activities in training and classroom sessions. Learners tap cards to reveal random questions, encouraging participation and conversation.
+
+## Features
+
+- **9 flip cards** in a 3x3 grid with colorful gradient fronts, icons, and labels
+- **Smooth 3D flip animation** using CSS transforms
+- **20 random ice breaker questions** with no-repeat logic until the pool is exhausted
+- **Reset button** to flip all cards back and start fresh
+- **Responsive design** — works on desktop, tablet, and mobile
+- **Accessible** — keyboard navigable (Enter/Space), ARIA labels, focus indicators
+- **Dark mode** UI with modern styling
 
 ## Getting Started
 
-First, run the development server:
+No build tools required. Just open `index.html` in a browser.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone the repo
+git clone https://github.com/alfredang/ice-breaker.git
+cd ice-breaker
+
+# Open in browser
+open index.html
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or visit the live site: [https://alfredang.github.io/ice-breaker](https://alfredang.github.io/ice-breaker)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How It Works
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Click or tap any card to flip it and reveal a random ice breaker question
+2. Share your answer with the group
+3. Keep flipping cards to discover more questions
+4. Hit **Reset Cards** to start a new round
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- HTML5
+- CSS3 (3D transforms, CSS Grid, custom properties)
+- Vanilla JavaScript (no dependencies)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
